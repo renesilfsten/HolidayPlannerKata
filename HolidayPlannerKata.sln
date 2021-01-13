@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayPlannerKata", "HolidayPlannerKata\HolidayPlannerKata.csproj", "{66DE4D5C-7DBC-4AE2-BBE0-B5BC68A06327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayPlannerKata.UnitTests", "HolidayPlannerKata.UnitTests\HolidayPlannerKata.UnitTests.csproj", "{425216ED-7E84-4D5B-A04C-D3D3EC66E281}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66DE4D5C-7DBC-4AE2-BBE0-B5BC68A06327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DE4D5C-7DBC-4AE2-BBE0-B5BC68A06327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DE4D5C-7DBC-4AE2-BBE0-B5BC68A06327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DE4D5C-7DBC-4AE2-BBE0-B5BC68A06327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{425216ED-7E84-4D5B-A04C-D3D3EC66E281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425216ED-7E84-4D5B-A04C-D3D3EC66E281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425216ED-7E84-4D5B-A04C-D3D3EC66E281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425216ED-7E84-4D5B-A04C-D3D3EC66E281}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0058DAF-B6C9-48B4-9B11-F75250CB5BF7}
+	EndGlobalSection
+EndGlobal
