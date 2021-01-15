@@ -33,8 +33,8 @@ namespace HolidayPlannerKata
             Ensure.TimeSpanHasDateSeparator(timespan, _dateSeparator);
             Ensure.TimeSpanHasHasTwoParts(timespan, _dateSeparator);
 
-            var firstPart = timespan.Split(_dateSeparator.ToString())[0];
-            var secondPart = timespan.Split(_dateSeparator.ToString())[1];
+            var firstPart = timespan.Split(_dateSeparator)[0];
+            var secondPart = timespan.Split(_dateSeparator)[1];
 
             TryParseDate(_dateFormat, firstPart, out _startDate);
             TryParseDate(_dateFormat, secondPart, out _endDate);
