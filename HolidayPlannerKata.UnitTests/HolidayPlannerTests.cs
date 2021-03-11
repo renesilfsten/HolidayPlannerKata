@@ -1,3 +1,5 @@
+using HolidayPlannerKata.Interfaces;
+using HolidayPlannerKata.Validators;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -7,10 +9,14 @@ namespace HolidayPlannerKata.UnitTests
     public class HolidayPlannerTests
     {
         private readonly NationalHolidays.NationalityEnum _nationality;
+        private readonly IEnsure _ensure;
+        private readonly IHolidayCalculator _holidayCalculator;
 
         public HolidayPlannerTests()
         {
             _nationality = NationalHolidays.NationalityEnum.Fi;
+            _ensure = new Ensure();
+            _holidayCalculator = new HolidayCalculator();
         }
 
         [DataTestMethod]
@@ -23,7 +29,7 @@ namespace HolidayPlannerKata.UnitTests
         [DataRow("1.4.2020-2.4.2020", 2)]
         public void HolidayPlannerCalculateHolidayUsageWithoutSundaysAndNationalHolidays(string timespan, int expectedResult)
         {
-            var sut = new HolidayPlanner(timespan);
+            var sut = new HolidayPlanner(timespan, _ensure, _holidayCalculator);
 
             var result = sut.CalculateHolidayUsageWithoutSundaysAndNationalHolidays(_nationality);
 
@@ -38,14 +44,14 @@ namespace HolidayPlannerKata.UnitTests
         [DataRow("1.1.2020", "Second part of timespan is missing")]
         public void HolidayPlannerThrowsWhenPeriodNotValid(string timespan, string testFailureMessage)
         {
-            Assert.ThrowsException<ArgumentException>(() => new HolidayPlanner(timespan),
+            Assert.ThrowsException<ArgumentException>(() => new HolidayPlanner(timespan, _ensure, _holidayCalculator),
                 testFailureMessage);
         }
 
         [TestMethod]
         public void HolidayPlannerThrowsWhenTimespanIsMissing()
         {
-            Assert.ThrowsException<ArgumentNullException>(() => new HolidayPlanner(""));
+            Assert.ThrowsException<ArgumentNullException>(() => new HolidayPlanner("", _ensure, _holidayCalculator));
         }
 
         [DataTestMethod]
@@ -53,7 +59,7 @@ namespace HolidayPlannerKata.UnitTests
         [DataRow("123")]
         public void HolidayPlannerDoesNotCalculateWhenTimespanDoesNotContainTwoDates(string timespan)
         {
-            Assert.ThrowsException<ArgumentException>(() => new HolidayPlanner(timespan));
+            Assert.ThrowsException<ArgumentException>(() => new HolidayPlanner(timespan, _ensure, _holidayCalculator));
         }
     }
 }

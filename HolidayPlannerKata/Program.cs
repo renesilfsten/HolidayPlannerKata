@@ -1,5 +1,6 @@
-﻿using System;
-using HolidayPlannerKata.Interfaces;
+﻿using HolidayPlannerKata.Interfaces;
+using HolidayPlannerKata.Validators;
+using System;
 
 namespace HolidayPlannerKata
 {
@@ -10,7 +11,7 @@ namespace HolidayPlannerKata
             Console.Write("Give me a time span : ");
             var input = Console.ReadLine();
 
-            IHolidayPlanner holidayPlanner = new HolidayPlanner(input);
+            IHolidayPlanner holidayPlanner = new HolidayPlanner(input, new Ensure(), new HolidayCalculator());
             var usedHolidays = holidayPlanner.CalculateHolidayUsageWithoutSundaysAndNationalHolidays(NationalHolidays.NationalityEnum.Fi);
 
             Console.WriteLine($"Used holidays: {usedHolidays}");
